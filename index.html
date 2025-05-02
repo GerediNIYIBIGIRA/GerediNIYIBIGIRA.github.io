@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geredi Niyibigira - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            fadeIn: 'fadeIn 0.8s ease-out forwards',
+            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+            scaleUp: 'scaleUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            scaleUp: {
+              '0%': { opacity: '0', transform: 'scale(0.8)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .progress-bar {
+      transition: width 1.5s ease-out;
+    }
+    
+    .section {
+      opacity: 0;
+    }
+    
+    .section.visible {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    .timeline-item {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .skill-card, .project-card, .education-card, .certification-card {
+      transition: all 0.3s ease;
+    }
+    
+    .skill-card:hover, .project-card:hover, .education-card:hover, .certification-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 leading-relaxed">
+  <!-- Header -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center">
+        <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+          <img src="https://i.imgur.com/1AQu9JC.jpeg" alt="Geredi Niyibigira" class="w-full h-full object-cover" id="header-photo">
+        </div>
+        <h1 class="text-2xl font-semibold text-indigo-700">Geredi Niyibigira</h1>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 text-gray-600" id="desktop-nav">
+        <a href="#about" class="hover:text-indigo-600 transition nav-link">About</a>
+        <a href="#education" class="hover:text-indigo-600 transition nav-link">Education</a>
+        <a href="#experience" class="hover:text-indigo-600 transition nav-link">Experience</a>
+        <a href="#projects" class="hover:text-indigo-600 transition nav-link">Projects</a>
+        <a href="#skills" class="hover:text-indigo-600 transition nav-link">Skills</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-gray-600" id="menu-button" aria-label="Toggle menu">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden bg-white px-4 py-2 shadow-inner hidden animate-fadeIn" id="mobile-nav">
+      <a href="#about" class="block py-2 hover:text-indigo-600 transition nav-link">About</a>
+      <a href="#education" class="block py-2 hover:text-indigo-600 transition nav-link">Education</a>
+      <a href="#experience" class="block py-2 hover:text-indigo-600 transition nav-link">Experience</a>
+      <a href="#projects" class="block py-2 hover:text-indigo-600 transition nav-link">Projects</a>
+      <a href="#skills" class="block py-2 hover:text-indigo-600 transition nav-link">Skills</a>
+      <a href="#certifications" class="block py-2 hover:text-indigo-600 transition nav-link">Certifications</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="bg-gradient-to-r from-indigo-700 to-purple-600 text-white py-24 animate-fadeIn">
+    <div class="container mx-auto px-4 flex flex-col items-center text-center">
+        <div class="mb-6 rounded-full shadow-lg overflow-hidden w-48 h-48 border-4 border-white">
+          <img src="https://i.imgur.com/1AQu9JC.jpeg" alt="Geredi Niyibigira" class="w-full h-full object-cover" id="profile-photo">
+        </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp">Geredi Niyibigira</h1>
+      <h2 class="text-xl md:text-2xl mb-8 text-indigo-100 animate-fadeInUp" style="animation-delay: 0.2s;">
+        Machine Learning, Data Analyst and AI Engineer | LLM | Computer vision
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4 animate-fadeInUp" style="animation-delay: 0.4s;">
+        <a 
+          href="#contact" 
+          class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-indigo-50 transition shadow-md"
+        >
+          Contact Me
+        </a>
+        <a 
+          href="https://drive.google.com/file/d/1ZXzRm5ky8dLTa6ZQL0KuGva_srRh2CR8/view?usp=sharing" target="_blank" rel="noopener"
+          class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-700 transition shadow-md"
+        >
+          Download CV
+        </a>
+      </div>
+      <div class="flex justify-center mt-12 space-x-4">
+        <a href="https://www.linkedin.com/in/niyibigira-geredi-a880111a7/" target="_blank" rel="noopener" 
+           class="bg-white p-3 rounded-full text-indigo-700 hover:text-indigo-900 hover:shadow-lg transition">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener"
+           class="bg-white p-3 rounded-full text-indigo-700 hover:text-indigo-900 hover:shadow-lg transition">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:ngeredi@andrew.cmu.edu"
+           class="bg-white p-3 rounded-full text-indigo-700 hover:text-indigo-900 hover:shadow-lg transition">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white section">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+          About Me
+          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+        </h2>
+      </div>
+      
+      <div class="flex flex-col md:flex-row gap-10">
+        <div class="md:w-1/3">
+          <div class="bg-gray-100 rounded-lg p-6 shadow-md">
+            <h3 class="text-lg font-semibold text-indigo-700 mb-4">Contact Information</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt text-indigo-500 mr-2 mt-1"></i>
+                <span>KN 202 ST, Kigali, Rwanda</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone text-indigo-500 mr-2 mt-1"></i>
+                <span>+250 7864 03702</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope text-indigo-500 mr-2 mt-1"></i>
+                <div class="flex flex-col">
+                  <a href="mailto:ngeredi@andrew.cmu.edu" class="hover:text-indigo-600">ngeredi@andrew.cmu.edu</a>
+                  <a href="mailto:niygeredi@gmail.com" class="hover:text-indigo-600">niygeredi@gmail.com</a>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <i class="fab fa-linkedin text-indigo-500 mr-2 mt-1"></i>
+                <a href="https://www.linkedin.com/in/niyibigira-geredi-a880111a7/" target="_blank" rel="noopener" class="hover:text-indigo-600 break-words">LinkedIn Profile</a>
+              </li>
+              <li class="flex items-start">
+                <i class="fab fa-github text-indigo-500 mr-2 mt-1"></i>
+                <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener" class="hover:text-indigo-600">GitHub Profile</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-gray-100 rounded-lg p-6 shadow-md mt-6">
+            <h3 class="text-lg font-semibold text-indigo-700 mb-4">Languages</h3>
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium">English</span>
+                  <span>95%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-indigo-600 progress-bar" data-width="95%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium">French</span>
+                  <span>40%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-purple-600 progress-bar" data-width="40%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium">Swahili</span>
+                  <span>30%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-blue-600 progress-bar" data-width="30%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:w-2/3">
+          <div class="bg-gray-100 rounded-lg p-6 shadow-md h-full">
+            <h3 class="text-lg font-semibold text-indigo-700 mb-4">Professional Summary</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Results-driven Machine Learning Engineer and Data Analyst with expertise in predictive modeling,
+              Python development, and cloud-based data solutions. Combines strong technical foundations in SQL,
+              Power BI, and data visualization with practical experience implementing end-to-end ML pipelines and
+              automated reporting systems.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Demonstrated success in extracting actionable insights from diverse, high-volume datasets to drive 
+              measurable social impact, particularly within Monitoring & Evaluation frameworks. Experienced in 
+              healthcare applications, cloud infrastructure deployment, and cross-functional collaboration.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Committed to continuous learning, data quality excellence, and creating inclusive AI technologies 
+              that address real-world challenges in African contexts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-gray-50 section">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+          Education
+          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+        </h2>
+      </div>
+      
+      <div class="space-y-8">
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transform education-card">
+          <div class="flex items-start">
+            <div class="bg-indigo-100 p-3 rounded-full text-indigo-700 mr-4">
+              <i class="fas fa-graduation-cap text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">Carnegie Mellon University, Africa</h3>
+              <p class="text-indigo-600 font-medium">MSc in Engineering Artificial Intelligence</p>
+              <p class="text-gray-600 mb-4">2023 – 2025</p>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-gray-700">Focus: Data Analytics, AI for Development, Cloud Systems, Deep Learning</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-gray-700">Relevant Coursework: Cloud Computing (15-319/15-619), covering containerization, elasticity, iterative processing, and cloud storage</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-gray-700">Eng. AI Capstone (Final Project): A Conversational Notebook Assistant for AI/ML Workflows</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transform education-card">
+          <div class="flex items-start">
+            <div class="bg-indigo-100 p-3 rounded-full text-indigo-700 mr-4">
+              <i class="fas fa-graduation-cap text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">University of Rwanda</h3>
+              <p class="text-indigo-600 font-medium">BSc in Electronics and Telecommunication Engineering</p>
+              <p class="text-gray-600 mb-4">2017 – 2022</p>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-gray-700">Final Project: Modeled network delays using MATLAB and DTMC modeling</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-white section">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+          Professional Experience
+          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+        </h2>
+      </div>
+      
+      <div class="relative border-l-2 border-indigo-200 ml-3 pl-8 space-y-12">
+        <div class="timeline-item">
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-gray-800">Graduate Teaching Assistant</h3>
+            <p class="text-indigo-600 font-medium">Carnegie Mellon University</p>
+            <p class="text-gray-600 mb-4">2024 – 2025</p>
+            <ul class="space-y-2 mb-2">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Assisting with the 11-785/485 Introduction to Deep Learning course, conducting recitations, designing quizzes, grading assignments, and mentoring students.</span>
+              </li>
+            </ul>
+            <a 
+              href="https://deeplearning.cs.cmu.edu/shared/TAs.html" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              TAs page <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-gray-800">Artificial Intelligence Instructor</h3>
+            <p class="text-indigo-600 font-medium">Glob Nexus Institute</p>
+            <p class="text-gray-600 mb-4">2024 – 2025</p>
+            <ul class="space-y-2 mb-2">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Guiding students in data science, machine learning, and AI, fostering a dynamic learning community for future tech innovators.</span>
+              </li>
+            </ul>
+            <a 
+              href="https://www.globalnexus.co.rw/about" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              Learn more <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-gray-800">Data Science Lab Apprentice</h3>
+            <p class="text-indigo-600 font-medium">WorldQuant University</p>
+            <p class="text-gray-600 mb-4">Apr 2023 – Jul 2023</p>
+            <ul class="space-y-2 mb-2">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Completed 6 comprehensive data science projects focused on predictive modeling, data mining, and statistical analysis</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Built robust data pipelines for extracting, cleaning, and visualizing data from SQL, MongoDB, and APIs</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Conducted validation, metric definition, and automated reporting using Jupyter + Power BI</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Implemented cloud-based data storage solutions for efficient data processing</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold text-gray-800">Single Line Generation Engineer</h3>
+            <p class="text-indigo-600 font-medium">Might Engineering</p>
+            <p class="text-gray-600 mb-4">Mar 2023 – Jun 2023</p>
+            <ul class="space-y-2 mb-2">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Translated CAD energy models into performance dashboards and monitoring templates</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gray-50 section">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+          Key Projects
+          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Featured Project -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card md:col-span-2 border-l-4 border-indigo-600">
+          <div class="p-6">
+            <div class="flex items-center mb-2">
+              <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs mr-2">Featured Project</span>
+              <h3 class="text-xl font-semibold text-gray-800">JupyterBuddy: Conversational Assistant for ML Workflow</h3>
+            </div>
+            <p class="text-indigo-600 font-medium mb-3">Capstone Project | Carnegie Mellon University Africa | 2025</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Co-developed <strong>JupyterBuddy</strong>, an LLM-powered assistant for streamlining AI/ML workflows in JupyterLab using natural language commands and real-time code execution</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Designed a modular architecture with a React-based frontend, FastAPI backend, and LangGraph-based agent orchestrating tool invocations, achieving <strong>100% tool call accuracy</strong> and <strong>36% latency reduction</strong></span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Integrated <strong>retrieval-augmented generation (RAG)</strong> with FAISS and Sentence-BERT to provide context-aware, document-grounded responses for tasks like EDA, model training, and debugging</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Enabled dynamic interaction with notebook cells (create, edit, execute, delete), real-time feedback, and error resolution for seamless AI development experiences</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Python</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">LangChain</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">LangGraph</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">FastAPI</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">React</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">LLM APIs</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">JupyterLab</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">RAG</span>
+            </div>
+            
+            <a 
+              href="https://drive.google.com/drive/folders/1iIk6AbcgCJiyG7ahHJpX1Yfy9tG7fej_?usp=sharing" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Project Documentation <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- ML on Cloud Project -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Machine Learning on the Cloud: End-to-End AI Deployment</h3>
+            <p class="text-indigo-600 font-medium mb-3">Cloud Computing Project | CMU | 2025</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Explored feature engineering techniques and trained an <strong>XGBoost predictor</strong> on <strong>Google Vertex AI</strong> with discriminative features identified through data inspection</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Performed <strong>hyperparameter tuning</strong> on Vertex AI and deployed the end-to-end ML pipeline on <strong>Google App Engine (GAE)</strong></span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Integrated a <strong>Retrieval-Augmented Generation (RAG)</strong> system and used <strong>prompt engineering</strong> to align model behavior with specific use cases</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Designed and executed an <strong>agentic workflow using LangGraph</strong>, enabling modular LLM-based query handling</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Google Cloud Platform</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Vertex AI</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">XGBoost</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">App Engine</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">RAG</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">LangGraph</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Original Projects -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Commute Ease</h3>
+            <p class="text-indigo-600 font-medium mb-3">Smart Mobility Dashboard (Hackathon Winner)</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Built analytics dashboard for traffic management using Power BI and GPS datasets</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Used SQL and APIs to automate data integration, enabling actionable policy insights</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Deployed solution using cloud infrastructure for scalability and reliability</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Power BI</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">GPS Analytics</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">SQL</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Cloud Infrastructure</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Smart Sorter</h3>
+            <p class="text-indigo-600 font-medium mb-3">Recyclable Waste Classification</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Created end-to-end data collection and analysis pipeline with live monitoring</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Connected model results to Power BI for visual analytics and inferential insights</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Implemented containerized deployment for consistent performance across environments</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Data Pipeline</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Power BI</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Container Deployment</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">IoT</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Gender-AI Chatbot</h3>
+            <p class="text-indigo-600 font-medium mb-3">4th Place – Innovation Challenge</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Developed inclusive AI assistant for family & gender-based service tracking</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Designed UI with built-in reporting for outreach and case study documentation</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">AI</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Chatbot</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">UI Design</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Reporting</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">CMU Cloud Computing</h3>
+            <p class="text-indigo-600 font-medium mb-3">Academic Projects Series</p>
+            <ul class="space-y-2 mb-4 project-details"">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Getting Started With Cloud Computing: Deployed multi-tier web application</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Elasticity: Implemented auto-scaling solutions for variable workloads</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Containers: Designed microservices architecture using Docker and Kubernetes</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">And more cloud infrastructure projects...</span>
+              </li>
+            </ul>
+            
+            <div class="hidden expanded-content">
+              <ul class="space-y-2 mb-4 animate-fadeIn">
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-gray-700">Iterative Processing: Developed data analytics solution using Apache Spark</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-gray-700">Cloud Storage: Built hybrid database system integrating SQL and NoSQL databases</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-gray-700">Heterogeneous Storage: Created graph database solutions using Neo4j</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-gray-700">Stream Processing: Implemented real-time data pipeline with Kafka and Samza</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Cloud Computing</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Docker</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Kubernetes</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Microservices</span>
+            </div>
+            
+            <button 
+              class="expand-btn text-indigo-600 hover:text-indigo-800 font-medium"
+              data-target="expanded-content"
+            >
+              Show More
+            </button>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Healthy Transportation to Work Dashboard</h3>
+            <p class="text-indigo-600 font-medium mb-3">ArcGIS Online Dashboard Project</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Designed and implemented an interactive ArcGIS Online dashboard to visualize healthy commuting patterns across Allegheny County, PA</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Aggregated block group-level transportation data to neighborhood and municipal scales using ArcGIS Pro's geoprocessing tools</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Integrated multiple spatial layers to support public health and urban planning decisions</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Customized symbology, layout, and interactivity to present key metrics like commute times, walkability, and public transit usage</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS Online</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Dashboards</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">GIS</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Spatial Analysis</span>
+            </div>
+            
+            <a 
+              href="https://www.arcgis.com/apps/dashboards/1359c1abd2324ace8cd13b554724a398" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Dashboard <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Hospital Accessibility in Rwanda</h3>
+            <p class="text-indigo-600 font-medium mb-3">Graduate GIS Final Project | CMU | May 2025</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Conducted spatial analysis of healthcare access across Rwanda using ArcGIS Pro</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Created 5 km and 10 km buffer zones to assess population coverage and identify underserved regions</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Integrated demographic data with geospatial hospital data to reveal critical disparities in rural healthcare access</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Delivered policy-relevant insights and an interactive web map to support targeted infrastructure improvements</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS Pro</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Spatial Analysis</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Buffer Analysis</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Healthcare</span>
+            </div>
+            
+            <a 
+              href="https://arcg.is/01eG5b" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Web Map <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Home Health Services Mapping</h3>
+            <p class="text-indigo-600 font-medium mb-3">Austin, TX Healthcare Analysis | CMU | 2025</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Analyzed spatial distribution of home health businesses and healthcare workforce across Austin</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Mapped employee counts and sales volumes; integrated demographic layers using Esri's Living Atlas</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Created interactive Story Maps visualizing occupational density, business presence, and healthcare accessibility</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Applied skills in data extraction, shapefile management, and visualization enhancements</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS Online</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Story Maps</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Data Axle</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">US Census Data</span>
+            </div>
+            
+            <a 
+              href="https://arcg.is/bvbmT0" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Story Map <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Walking to Work in Pittsburgh</h3>
+            <p class="text-indigo-600 font-medium mb-3">GIS Storytelling Project | CMU | 2025</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Developed a web-based StoryMap exploring spatial patterns of walking commuters in Pittsburgh using U.S. Census ACS data</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Joined commuting data to geographic census block polygons and analyzed spatial clusters of walk-to-work behavior</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Investigated influences such as Pittsburgh's multi-core urban layout, pedestrian bridges, and proximity to universities</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Integrated narrative elements, interactive maps, and feature layers into a compelling geographic story</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS StoryMaps</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS Pro</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Spatial Join</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Census Data</span>
+            </div>
+            
+            <a 
+              href="https://arcg.is/qivST1" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Story Map <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+              
+            </div>
+            
+            <button 
+              class="expand-btn text-indigo-600 hover:text-indigo-800 font-medium"
+              data-target="expanded-content"
+            >
+              Show More
+            </button>
+          </div>
+        </div>
+        
+        <!-- GIS Projects -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Healthy Transportation to Work Dashboard</h3>
+            <p class="text-indigo-600 font-medium mb-3">ArcGIS Online Dashboard Project</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Designed and implemented an interactive ArcGIS Online dashboard to visualize healthy commuting patterns across Allegheny County, PA</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Aggregated block group-level transportation data to neighborhood and municipal scales using ArcGIS Pro's geoprocessing tools</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Integrated multiple spatial layers to support public health and urban planning decisions</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Customized symbology, layout, and interactivity to present key metrics like commute times, walkability, and public transit usage</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS Online</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Dashboards</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">GIS</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Spatial Analysis</span>
+            </div>
+            
+            <a 
+              href="https://www.arcgis.com/apps/dashboards/1359c1abd2324ace8cd13b554724a398" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Dashboard <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Hospital Accessibility in Rwanda</h3>
+            <p class="text-indigo-600 font-medium mb-3">Graduate GIS Final Project | CMU | May 2025</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Conducted spatial analysis of healthcare access across Rwanda using ArcGIS Pro</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Created 5 km and 10 km buffer zones to assess population coverage and identify underserved regions</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Integrated demographic data with geospatial hospital data to reveal critical disparities in rural healthcare access</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Delivered policy-relevant insights and an interactive web map to support targeted infrastructure improvements</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS Pro</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Spatial Analysis</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Buffer Analysis</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Healthcare</span>
+            </div>
+            
+            <a 
+              href="https://arcg.is/01eG5b" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Web Map <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Home Health Services Mapping</h3>
+            <p class="text-indigo-600 font-medium mb-3">Austin, TX Healthcare Analysis | CMU | 2025</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Analyzed spatial distribution of home health businesses and healthcare workforce across Austin</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Mapped employee counts and sales volumes; integrated demographic layers using Esri's Living Atlas</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Created interactive Story Maps visualizing occupational density, business presence, and healthcare accessibility</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Applied skills in data extraction, shapefile management, and visualization enhancements</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS Online</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Story Maps</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Data Axle</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">US Census Data</span>
+            </div>
+            
+            <a 
+              href="https://arcg.is/bvbmT0" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Story Map <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Walking to Work in Pittsburgh</h3>
+            <p class="text-indigo-600 font-medium mb-3">GIS Storytelling Project | CMU | 2025</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Developed a web-based StoryMap exploring spatial patterns of walking commuters in Pittsburgh using U.S. Census ACS data</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Joined commuting data to geographic census block polygons and analyzed spatial clusters of walk-to-work behavior</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Investigated influences such as Pittsburgh's multi-core urban layout, pedestrian bridges, and proximity to universities</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-gray-700">Integrated narrative elements, interactive maps, and feature layers into a compelling geographic story</span>
+              </li>
+            </ul>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS StoryMaps</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">ArcGIS Pro</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Spatial Join</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Census Data</span>
+            </div>
+            
+            <a 
+              href="https://arcg.is/qivST1" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Story Map <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div><span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Spatial Join</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Census Data</span>
+            </div>
+            
+            <a 
+              href="https://arcg.is/qivST1" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Story Map <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div><span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Spatial Join</span>
+              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Census Data</span>
+            </div>
+            
+            <a 
+              href="https://arcg.is/qivST1" 
+              target="_blank" 
+              rel="noopener" 
+              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+            >
+              View Story Map <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-white section">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+          Technical Skills
+          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl mr-2">💻</span>
+            <h3 class="text-lg font-semibold text-gray-800">Programming Languages</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">SQL (MySQL, PostgreSQL)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Python</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Java</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">R</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">JavaScript</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl mr-2">📊</span>
+            <h3 class="text-lg font-semibold text-gray-800">Data Visualization & BI</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Power BI</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Tableau</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Dash</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Grafana</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Prometheus</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl mr-2">⚙️</span>
+            <h3 class="text-lg font-semibold text-gray-800">Data Engineering</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Pandas, NumPy</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">PySpark</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Scikit-learn</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Airflow</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">ETL Pipelines</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl mr-2">☁️</span>
+            <h3 class="text-lg font-semibold text-gray-800">Cloud & DevOps</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Docker</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Kubernetes</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">AWS (EC2, S3, Lambda)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">GCP</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Azure</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl mr-2">🗄️</span>
+            <h3 class="text-lg font-semibold text-gray-800">Data Storage</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">SQL (MySQL, PostgreSQL)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">NoSQL (MongoDB, Redis)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Neo4j</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Data Warehousing</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+          <div class="flex items-center mb-4">
+            <span class="text-2xl mr-2">🛠️</span>
+            <h3 class="text-lg font-semibold text-gray-800">Development Tools</h3>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Git, GitHub</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Jupyter</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">VS Code</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">Linux</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-indigo-500 mr-2">•</span>
+              <span class="text-gray-700">CI/CD Pipelines</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-20 bg-gray-50 section">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+          Certifications
+          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 text-center transition certification-card">
+          <div class="text-4xl mb-4">🧠</div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Machine Learning</h3>
+          <p class="text-indigo-600">Stanford University (Coursera)</p>
+          <a href="https://drive.google.com/file/d/1-C1KZFXlJr0vIxfJSasr7lJDZoqNXhLP/view" target="_blank" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-medium">
+            View Certificate <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+          </a>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center transition certification-card">
+          <div class="text-4xl mb-4">📈</div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Analytics Professional</h3>
+          <p class="text-indigo-600">Google</p>
+          <a href="https://drive.google.com/file/d/1-C1KZFXlJr0vIxfJSasr7lJDZoqNXhLP/view" target="_blank" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-medium">
+            View Certificate <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+          </a>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center transition certification-card">
+          <div class="text-4xl mb-4">🔤</div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">NLP Specialization</h3>
+          <p class="text-indigo-600">DeepLearning.AI</p>
+          <a href="#" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-medium">
+            View Certificate
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section id="leadership" class="py-20 bg-white section">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+          Leadership
+          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+        </h2>
+      </div>
+      
+      <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6 shadow-md">
+        <h3 class="text-xl font-semibold text-indigo-700 mb-2">UR Tech Innovators – Chairman</h3>
+        <p class="text-gray-600 mb-4">2019 – 2022</p>
+        <ul class="space-y-2">
+          <li class="flex items-start">
+            <i class="fas fa-chevron-right text-indigo-500 mr-2 mt-1"></i>
+            <span>Led community impact projects through data-informed decision-making</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-chevron-right text-indigo-500 mr-2 mt-1"></i>
+            <span>Organized workshops on technology, inclusion, and entrepreneurship during COVID</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with Form -->
+  <section id="contact" class="py-20 bg-gradient-to-r from-indigo-700 to-purple-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-white inline-block relative">
+          Get In Touch
+          <span class="block h-1 w-24 bg-white mt-2 mx-auto"></span>
+        </h2>
+      </div>
+      
+      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-gray-800">
+        <form class="space-y-6" action="https://formspree.io/f/mpwdppad" method="POST">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-700 mb-2">Name</label>
+              <input 
+                type="text" 
+                name="name"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">Email</label>
+              <input 
+                type="email" 
+                name="_replyto"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2">Subject</label>
+            <input 
+              type="text" 
+              name="subject"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Subject"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2">Message</label>
+            <textarea 
+              name="message"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 h-32"
+              placeholder="Your Message"
+              required
+            ></textarea>
+          </div>
+          <button 
+            type="submit" 
+            class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-md w-full md:w-auto"
+          >
+            Send Message
+          </button>
+        </form>
+        
+        <div class="mt-6 text-center text-gray-600">
+          <p>Alternatively, you can directly email me at: <a href="mailto:ngeredi@andrew.cmu.edu" class="text-indigo-600 hover:underline">ngeredi@andrew.cmu.edu</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-indigo-900 text-white py-10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h2 class="text-2xl font-bold mb-2">Geredi Niyibigira</h2>
+          <p class="text-indigo-200">Machine Learning, Data Analyst and AI Engineer | LLM | Computer vision</p>
+        </div>
+        
+        <div class="flex space-x-4">
+          <a href="https://www.linkedin.com/in/niyibigira-geredi-a880111a7/" target="_blank" rel="noopener" 
+             class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-700 transition">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener"
+             class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-700 transition">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:ngeredi@andrew.cmu.edu"
+             class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-700 transition">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-indigo-800 mt-6 pt-6 text-center text-indigo-200">
+        &copy; <span id="current-year"></span> Geredi Niyibigira. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Interactivity -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-button').addEventListener('click', function() {
+      const mobileNav = document.getElementById('mobile-nav');
+      if (mobileNav.classList.contains('hidden')) {
+        mobileNav.classList.remove('hidden');
+      } else {
+        mobileNav.classList.add('hidden');
+      }
+    });
+
+    // Progress bars animation
+    function animateProgressBars() {
+      const progressBars = document.querySelectorAll('.progress-bar');
+      progressBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 300);
+      });
+    }
+
+    // Section visibility on scroll
+    function handleScrollAnimation() {
+      const sections = document.querySelectorAll('.section');
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (sectionTop < windowHeight * 0.75) {
+          section.classList.add('visible');
+          
+          // Animate progress bars when the about section becomes visible
+          if (section.id === 'about') {
+            animateProgressBars();
+          }
+        }
+      });
+      
+      timelineItems.forEach((item, index) => {
+        const itemTop = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (itemTop < windowHeight * 0.85) {
+          setTimeout(() => {
+            item.classList.add('visible');
+          }, index * 150); // Stagger the animations
+        }
+      });
+    }
+
+    // Expandable content for projects
+    document.querySelectorAll('.expand-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const target = this.getAttribute('data-target');
+        const content = this.parentElement.querySelector('.' + target);
+        
+        if (content.classList.contains('hidden')) {
+          content.classList.remove('hidden');
+          this.textContent = 'Show Less';
+        } else {
+          content.classList.add('hidden');
+          this.textContent = 'Show More';
+        }
+      });
+    });
+
+    // Active navigation link on scroll
+    function setActiveNavLink() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= (sectionTop - 200)) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('font-semibold', 'text-indigo-600', 'border-b-2', 'border-indigo-600');
+        const href = link.getAttribute('href').substring(1);
+        if (href === currentSection) {
+          link.classList.add('font-semibold', 'text-indigo-600');
+          if (window.innerWidth >= 768) { // Only add border on desktop
+            link.classList.add('border-b-2', 'border-indigo-600');
+          }
+        }
+      });
+    }
+
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Initialize animations
+    window.addEventListener('load', function() {
+      handleScrollAnimation();
+      setActiveNavLink();
+      
+      // Initialize card hover effects
+      const cards = document.querySelectorAll('.skill-card, .project-card, .education-card, .certification-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.classList.add('shadow-lg');
+          this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.classList.remove('shadow-lg');
+          this.style.transform = 'translateY(0)';
+        });
+      });
+    });
+
+    // Event listeners for scroll
+    window.addEventListener('scroll', function() {
+      handleScrollAnimation();
+      setActiveNavLink();
+    });
+  </script>
+</body>
+</html>
