@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Geredi Niyibigira - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
@@ -13,24 +13,43 @@
         extend: {
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            navy: {
+              50:  '#EDF1F5',
+              100: '#D7E1EA',
+              200: '#B0C3D3',
+              300: '#89A6BC',
+              400: '#5F7F9E',
+              500: '#3E6280',
+              600: '#0A2540',
+              700: '#082036',
+              800: '#061A2C',
+              900: '#040F1C',
+            },
+            gold: {
+              50:  '#FBF7EF',
+              100: '#F3E6C9',
+              200: '#E6CDA0',
+              300: '#D8B473',
+              400: '#C9A150',
+              500: '#B08D57',
+              600: '#96773F',
+              700: '#7C6233',
+              800: '#5F4B27',
+              900: '#42341B',
+            },
           },
           animation: {
-            fadeIn: 'fadeIn 0.8s ease-out forwards',
-            fadeInUp: 'fadeInUp 0.8s ease-out forwards',
-            scaleUp: 'scaleUp 0.8s ease-out forwards',
+            fadeIn: 'fadeIn 0.6s ease-out forwards',
+            fadeInUp: 'fadeIn 0.6s ease-out forwards',
+            scaleUp: 'fadeIn 0.6s ease-out forwards',
           },
           keyframes: {
             fadeIn: {
               '0%': { opacity: '0' },
               '100%': { opacity: '1' },
-            },
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            scaleUp: {
-              '0%': { opacity: '0', transform: 'scale(0.8)' },
-              '100%': { opacity: '1', transform: 'scale(1)' },
             },
           },
         },
@@ -40,6 +59,20 @@
   <style>
     html {
       scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: 0.01em;
+    }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #B08D57;
     }
 
     .progress-bar {
@@ -56,22 +89,19 @@
 
     .timeline-item {
       opacity: 0;
-      transform: translateX(-20px);
-      transition: all 0.6s ease-out;
+      transition: opacity 0.5s ease-out;
     }
 
     .timeline-item.visible {
       opacity: 1;
-      transform: translateX(0);
     }
 
     .skill-card, .project-card, .education-card, .certification-card {
-      transition: all 0.3s ease;
+      transition: box-shadow 0.25s ease;
     }
 
     .skill-card:hover, .project-card:hover, .education-card:hover, .certification-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 6px 16px -4px rgba(10, 37, 64, 0.12);
     }
 
     .current-badge {
@@ -84,37 +114,36 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #22c55e;
+      background: #B08D57;
       display: inline-block;
-      animation: pulse 2s infinite;
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
-      70% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
-      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    .seal-ribbon {
+      height: 3px;
+      background: #B08D57;
     }
   </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-800 leading-relaxed">
+<body class="bg-gray-50 font-sans text-navy-800 leading-relaxed">
+  <div class="seal-ribbon w-full"></div>
   <!-- Header -->
-  <header class="bg-white shadow sticky top-0 z-50">
+  <header class="bg-white shadow sticky top-0 z-50 border-b border-navy-100">
     <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between">
       <div class="flex items-center">
         <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
           <img src="https://i.imgur.com/kBrBkd4.jpeg" alt="Geredi Niyibigira" class="w-full h-full object-cover" id="header-photo">
         </div>
-        <h1 class="text-2xl font-semibold text-indigo-700">Geredi Niyibigira</h1>
+        <h1 class="text-2xl font-semibold text-navy-700">Geredi Niyibigira</h1>
       </div>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-6 text-gray-600" id="desktop-nav">
-        <a href="#about" class="hover:text-indigo-600 transition nav-link">About</a>
-        <a href="#education" class="hover:text-indigo-600 transition nav-link">Education</a>
-        <a href="#experience" class="hover:text-indigo-600 transition nav-link">Experience</a>
-        <a href="#projects" class="hover:text-indigo-600 transition nav-link">Projects</a>
-        <a href="#skills" class="hover:text-indigo-600 transition nav-link">Skills</a>
-        <a href="#certifications" class="hover:text-indigo-600 transition nav-link">Certifications</a>
+        <a href="#about" class="hover:text-navy-600 transition nav-link">About</a>
+        <a href="#education" class="hover:text-navy-600 transition nav-link">Education</a>
+        <a href="#experience" class="hover:text-navy-600 transition nav-link">Experience</a>
+        <a href="#projects" class="hover:text-navy-600 transition nav-link">Projects</a>
+        <a href="#skills" class="hover:text-navy-600 transition nav-link">Skills</a>
+        <a href="#certifications" class="hover:text-navy-600 transition nav-link">Certifications</a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -125,50 +154,50 @@
 
     <!-- Mobile Navigation -->
     <nav class="md:hidden bg-white px-4 py-2 shadow-inner hidden animate-fadeIn" id="mobile-nav">
-      <a href="#about" class="block py-2 hover:text-indigo-600 transition nav-link">About</a>
-      <a href="#education" class="block py-2 hover:text-indigo-600 transition nav-link">Education</a>
-      <a href="#experience" class="block py-2 hover:text-indigo-600 transition nav-link">Experience</a>
-      <a href="#projects" class="block py-2 hover:text-indigo-600 transition nav-link">Projects</a>
-      <a href="#skills" class="block py-2 hover:text-indigo-600 transition nav-link">Skills</a>
-      <a href="#certifications" class="block py-2 hover:text-indigo-600 transition nav-link">Certifications</a>
+      <a href="#about" class="block py-2 hover:text-navy-600 transition nav-link">About</a>
+      <a href="#education" class="block py-2 hover:text-navy-600 transition nav-link">Education</a>
+      <a href="#experience" class="block py-2 hover:text-navy-600 transition nav-link">Experience</a>
+      <a href="#projects" class="block py-2 hover:text-navy-600 transition nav-link">Projects</a>
+      <a href="#skills" class="block py-2 hover:text-navy-600 transition nav-link">Skills</a>
+      <a href="#certifications" class="block py-2 hover:text-navy-600 transition nav-link">Certifications</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="bg-gradient-to-r from-indigo-700 to-purple-600 text-white py-24 animate-fadeIn">
+  <section id="hero" class="bg-navy-800 text-white py-24 animate-fadeIn">
     <div class="container mx-auto px-4 flex flex-col items-center text-center">
         <div class="mb-6 rounded-full shadow-lg overflow-hidden w-48 h-48 border-4 border-white">
           <img src="https://i.imgur.com/kBrBkd4.jpeg" alt="Geredi Niyibigira" class="w-full h-full object-cover" id="profile-photo">
         </div>
       <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp">Geredi Niyibigira</h1>
-      <h2 class="text-xl md:text-2xl mb-8 text-indigo-100 animate-fadeInUp" style="animation-delay: 0.2s;">
+      <h2 class="text-xl md:text-2xl mb-8 text-navy-100 animate-fadeInUp" style="animation-delay: 0.2s;">
         AI Engineer &amp; Machine Learning Specialist | Computer Vision | LLM | DevOps
       </h2>
       <div class="flex flex-wrap justify-center gap-4 animate-fadeInUp" style="animation-delay: 0.4s;">
         <a
           href="#contact"
-          class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-indigo-50 transition shadow-md"
+          class="bg-white text-navy-700 px-6 py-3 rounded-sm font-semibold hover:bg-navy-50 transition shadow-md"
         >
           Contact Me
         </a>
         <a
           href="https://drive.google.com/file/d/1R6i1oTgM86RJbjn0hTq9JRkuFLTZ829t/view?usp=sharing" target="_blank" rel="noopener"
-          class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-700 transition shadow-md"
+          class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-sm font-semibold hover:bg-white hover:text-navy-700 transition shadow-md"
         >
           Download CV
         </a>
       </div>
       <div class="flex justify-center mt-12 space-x-4">
         <a href="https://www.linkedin.com/in/niyibigira-geredi-a880111a7/" target="_blank" rel="noopener"
-           class="bg-white p-3 rounded-full text-indigo-700 hover:text-indigo-900 hover:shadow-lg transition">
+           class="bg-white p-3 rounded-full text-navy-700 hover:text-navy-900 transition">
           <i class="fab fa-linkedin"></i>
         </a>
         <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener"
-           class="bg-white p-3 rounded-full text-indigo-700 hover:text-indigo-900 hover:shadow-lg transition">
+           class="bg-white p-3 rounded-full text-navy-700 hover:text-navy-900 transition">
           <i class="fab fa-github"></i>
         </a>
         <a href="mailto:ngeredi@alumni.cmu.edu"
-           class="bg-white p-3 rounded-full text-indigo-700 hover:text-indigo-900 hover:shadow-lg transition">
+           class="bg-white p-3 rounded-full text-navy-700 hover:text-navy-900 transition">
           <i class="fas fa-envelope"></i>
         </a>
       </div>
@@ -179,45 +208,45 @@
   <section id="about" class="py-20 bg-white section">
     <div class="container mx-auto px-4">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+        <h2 class="text-3xl font-bold text-navy-800 inline-block relative">
           About Me
-          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+          <span class="block h-1 w-24 bg-gold-500 mt-2 mx-auto"></span>
         </h2>
       </div>
 
       <div class="flex flex-col md:flex-row gap-10">
         <div class="md:w-1/3">
-          <div class="bg-gray-100 rounded-lg p-6 shadow-md">
-            <h3 class="text-lg font-semibold text-indigo-700 mb-4">Contact Information</h3>
+          <div class="bg-gray-100 rounded-md p-6 shadow-md">
+            <h3 class="text-lg font-semibold text-navy-700 mb-4">Contact Information</h3>
             <ul class="space-y-3">
               <li class="flex items-start">
-                <i class="fas fa-map-marker-alt text-indigo-500 mr-2 mt-1"></i>
+                <i class="fas fa-map-marker-alt text-navy-500 mr-2 mt-1"></i>
                 <span>KN 202 ST, Kigali, Rwanda</span>
               </li>
               <li class="flex items-start">
-                <i class="fas fa-phone text-indigo-500 mr-2 mt-1"></i>
+                <i class="fas fa-phone text-navy-500 mr-2 mt-1"></i>
                 <span>+250 7864 03702</span>
               </li>
               <li class="flex items-start">
-                <i class="fas fa-envelope text-indigo-500 mr-2 mt-1"></i>
+                <i class="fas fa-envelope text-navy-500 mr-2 mt-1"></i>
                 <div class="flex flex-col">
-                  <a href="mailto:ngeredi@alumni.cmu.edu" class="hover:text-indigo-600">ngeredi@alumni.cmu.edu</a>
-                  <a href="mailto:niygeredi@gmail.com" class="hover:text-indigo-600">niygeredi@gmail.com</a>
+                  <a href="mailto:ngeredi@alumni.cmu.edu" class="hover:text-navy-600">ngeredi@alumni.cmu.edu</a>
+                  <a href="mailto:niygeredi@gmail.com" class="hover:text-navy-600">niygeredi@gmail.com</a>
                 </div>
               </li>
               <li class="flex items-start">
-                <i class="fab fa-linkedin text-indigo-500 mr-2 mt-1"></i>
-                <a href="https://www.linkedin.com/in/niyibigira-geredi-a880111a7/" target="_blank" rel="noopener" class="hover:text-indigo-600 break-words">LinkedIn Profile</a>
+                <i class="fab fa-linkedin text-navy-500 mr-2 mt-1"></i>
+                <a href="https://www.linkedin.com/in/niyibigira-geredi-a880111a7/" target="_blank" rel="noopener" class="hover:text-navy-600 break-words">LinkedIn Profile</a>
               </li>
               <li class="flex items-start">
-                <i class="fab fa-github text-indigo-500 mr-2 mt-1"></i>
-                <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener" class="hover:text-indigo-600">GitHub Profile</a>
+                <i class="fab fa-github text-navy-500 mr-2 mt-1"></i>
+                <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener" class="hover:text-navy-600">GitHub Profile</a>
               </li>
             </ul>
           </div>
 
-          <div class="bg-gray-100 rounded-lg p-6 shadow-md mt-6">
-            <h3 class="text-lg font-semibold text-indigo-700 mb-4">Languages</h3>
+          <div class="bg-gray-100 rounded-md p-6 shadow-md mt-6">
+            <h3 class="text-lg font-semibold text-navy-700 mb-4">Languages</h3>
             <div class="space-y-3">
               <div>
                 <div class="flex justify-between mb-1">
@@ -225,7 +254,7 @@
                   <span>Fluent</span>
                 </div>
                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <div class="h-full bg-indigo-600 progress-bar" data-width="95%"></div>
+                  <div class="h-full bg-navy-600 progress-bar" data-width="95%"></div>
                 </div>
               </div>
               <div>
@@ -234,7 +263,7 @@
                   <span>Elementary</span>
                 </div>
                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <div class="h-full bg-purple-600 progress-bar" data-width="35%"></div>
+                  <div class="h-full bg-gold-600 progress-bar" data-width="35%"></div>
                 </div>
               </div>
               <div>
@@ -243,7 +272,7 @@
                   <span>Basic</span>
                 </div>
                 <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <div class="h-full bg-blue-600 progress-bar" data-width="20%"></div>
+                  <div class="h-full bg-slate-600 progress-bar" data-width="20%"></div>
                 </div>
               </div>
             </div>
@@ -251,8 +280,8 @@
         </div>
 
         <div class="md:w-2/3">
-          <div class="bg-gray-100 rounded-lg p-6 shadow-md h-full">
-            <h3 class="text-lg font-semibold text-indigo-700 mb-4">Professional Summary</h3>
+          <div class="bg-gray-100 rounded-md p-6 shadow-md h-full">
+            <h3 class="text-lg font-semibold text-navy-700 mb-4">Professional Summary</h3>
             <p class="text-gray-700 leading-relaxed mb-4">
               AI Engineer and Machine Learning Specialist with expertise in computer vision, predictive modeling,
               Python development, cloud-based data solutions, and deep learning for public health, social impact,
@@ -278,33 +307,33 @@
   <section id="education" class="py-20 bg-gray-50 section">
     <div class="container mx-auto px-4">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+        <h2 class="text-3xl font-bold text-navy-800 inline-block relative">
           Education
-          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+          <span class="block h-1 w-24 bg-gold-500 mt-2 mx-auto"></span>
         </h2>
       </div>
 
       <div class="space-y-8">
-        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transform education-card">
+        <div class="bg-white rounded-md shadow-md p-6 education-card">
           <div class="flex items-start">
-            <div class="bg-indigo-100 p-3 rounded-full text-indigo-700 mr-4">
+            <div class="bg-navy-100 p-3 rounded-full text-navy-700 mr-4">
               <i class="fas fa-graduation-cap text-xl"></i>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-800">Carnegie Mellon University, Africa</h3>
-              <p class="text-indigo-600 font-medium">MSc in Engineering Artificial Intelligence</p>
+              <h3 class="text-xl font-semibold text-navy-800">Carnegie Mellon University, Africa</h3>
+              <p class="text-navy-600 font-medium">MSc in Engineering Artificial Intelligence</p>
               <p class="text-gray-600 mb-4">2023 – 2025</p>
               <ul class="space-y-2">
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Focus: Data Analytics, AI for Development, Cloud Systems, Deep Learning</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Relevant Coursework: Deep Learning, Cloud Computing (15-319/15-619) — containerization, elasticity, iterative processing, and cloud storage</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Eng. AI Capstone (Final Project): A Conversational Notebook Assistant for AI/ML Workflows</span>
                 </li>
               </ul>
@@ -312,18 +341,18 @@
           </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition transform education-card">
+        <div class="bg-white rounded-md shadow-md p-6 education-card">
           <div class="flex items-start">
-            <div class="bg-indigo-100 p-3 rounded-full text-indigo-700 mr-4">
+            <div class="bg-navy-100 p-3 rounded-full text-navy-700 mr-4">
               <i class="fas fa-graduation-cap text-xl"></i>
             </div>
             <div>
-              <h3 class="text-xl font-semibold text-gray-800">University of Rwanda</h3>
-              <p class="text-indigo-600 font-medium">BSc in Electronics and Telecommunication Engineering</p>
+              <h3 class="text-xl font-semibold text-navy-800">University of Rwanda</h3>
+              <p class="text-navy-600 font-medium">BSc in Electronics and Telecommunication Engineering</p>
               <p class="text-gray-600 mb-4">2017 – 2022</p>
               <ul class="space-y-2">
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Final Project: Modeled network delays using MATLAB and DTMC modeling</span>
                 </li>
               </ul>
@@ -338,47 +367,47 @@
   <section id="experience" class="py-20 bg-white section">
     <div class="container mx-auto px-4">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+        <h2 class="text-3xl font-bold text-navy-800 inline-block relative">
           Professional Experience
-          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+          <span class="block h-1 w-24 bg-gold-500 mt-2 mx-auto"></span>
         </h2>
       </div>
 
-      <div class="relative border-l-2 border-indigo-200 ml-3 pl-8 space-y-12">
+      <div class="relative border-l-2 border-navy-200 ml-3 pl-8 space-y-12">
 
         <!-- BNR -->
         <div class="timeline-item">
-          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
-          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-navy-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-md shadow-md p-6 transition">
             <div class="flex flex-wrap items-center gap-2">
-              <h3 class="text-xl font-semibold text-gray-800">Data Science Inspector</h3>
-              <span class="current-badge text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full"><span class="dot"></span>Current</span>
+              <h3 class="text-xl font-semibold text-navy-800">Data Science Inspector</h3>
+              <span class="current-badge text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded-sm"><span class="dot"></span>Current</span>
             </div>
-            <p class="text-indigo-600 font-medium">National Bank of Rwanda (BNR)</p>
+            <p class="text-navy-600 font-medium">National Bank of Rwanda (BNR)</p>
             <p class="text-gray-600 mb-4">Jul 2026 – Present</p>
             <ul class="space-y-2 mb-2">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Applying machine learning, AI, statistical analysis, and predictive modeling to support data-driven supervision of Rwanda's insurance and pension sectors</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Designing ML models, predictive analytics solutions, and AI-assisted decision-support tools for supervisory and regulatory processes</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Analyzing complex financial datasets to identify emerging risks, trends, anomalies, and regulatory insights</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Developing forecasting models, AI-assisted risk assessment frameworks, and early warning systems for financial sector monitoring</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Designing interactive dashboards and analytical reports to communicate insights to technical and non-technical stakeholders</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Collaborating with inspectors, analysts, data engineers, and IT teams to integrate advanced analytics and AI into supervisory processes</span>
               </li>
             </ul>
@@ -387,38 +416,38 @@
 
         <!-- One Acre Fund -->
         <div class="timeline-item">
-          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
-          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-            <h3 class="text-xl font-semibold text-gray-800">DevOps Engineer</h3>
-            <p class="text-indigo-600 font-medium">One Acre Fund — IT Engineering (DevOps Team)</p>
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-navy-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-md shadow-md p-6 transition">
+            <h3 class="text-xl font-semibold text-navy-800">DevOps Engineer</h3>
+            <p class="text-navy-600 font-medium">One Acre Fund — IT Engineering (DevOps Team)</p>
             <p class="text-gray-600 mb-4">Oct 2025 – Jun 2026</p>
             <ul class="space-y-2 mb-2">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Architected and deployed a GitOps foundation using ArgoCD across four Kubernetes environments (Integration, QA, UAT, Production), with Keycloak OIDC authentication, RBAC, and a GitHub Actions promotion pipeline</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Implemented centralized secret management by integrating External Secrets Operator with HashiCorp Vault, eliminating secrets from Git repos and enabling automatic credential rotation</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Deployed Bytebase as the first ArgoCD-managed application for controlled database schema migrations across QA and Production</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Delivered a fully automated PostgreSQL backup URL generation system (Bash + Azure Storage REST API), removing the Azure CLI dependency and reducing container footprint</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Restored Odoo 17 UAT environment by resolving Azure-managed PostgreSQL connectivity issues and recovering complete filestore and database data</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Refactored CI/CD pipelines for Fineract API with reusable GitHub Actions templates and automated rollback procedures</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Resolved recurring Kubernetes OOMKill incidents by tuning resource limits across Helm manifests for 10+ microservices (Airbyte, Fineract, Superset, Falco)</span>
               </li>
             </ul>
@@ -427,37 +456,37 @@
 
         <!-- Charis UAS -->
         <div class="timeline-item">
-          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
-          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-navy-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-md shadow-md p-6 transition">
             <div class="flex flex-wrap items-center gap-2">
-              <h3 class="text-xl font-semibold text-gray-800">AI Engineer (Consultant)</h3>
-              <span class="current-badge text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full"><span class="dot"></span>Current</span>
+              <h3 class="text-xl font-semibold text-navy-800">AI Engineer (Consultant)</h3>
+              <span class="current-badge text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded-sm"><span class="dot"></span>Current</span>
             </div>
-            <p class="text-indigo-600 font-medium">Charis UAS (Charis Unmanned Aerial Solutions)</p>
+            <p class="text-navy-600 font-medium">Charis UAS (Charis Unmanned Aerial Solutions)</p>
             <p class="text-gray-600 mb-4">Sept 2025 – Present</p>
             <ul class="space-y-2 mb-2">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Leading AI development for a Gates Foundation-funded malaria eradication project in Rwanda, building computer vision systems that detect mosquito breeding sites from high-resolution UAV imagery</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Designing and training deep learning models for instance segmentation and classification of mosquito habitats from multi-spectral (RGB, NIR) aerial imagery</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Building end-to-end data pipelines for UAV image preprocessing, annotation workflow management, and automated analysis across large-scale study areas</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Integrating entomological ground-truth data with geospatial datasets to enhance model accuracy and validation protocols</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Collaborating with GIS specialists, UAV operations teams, and entomologists to deliver integrated AI-driven solutions</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Conducting knowledge transfer sessions to build local capacity in AI workflows and data management practices</span>
               </li>
             </ul>
@@ -466,26 +495,26 @@
 
         <!-- KCRC -->
         <div class="timeline-item">
-          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
-          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-            <h3 class="text-xl font-semibold text-gray-800">Research Assistant — Open Source Mobility Platform for Africa</h3>
-            <p class="text-indigo-600 font-medium">Kigali Collaborative Research Centre (KCRC)</p>
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-navy-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-md shadow-md p-6 transition">
+            <h3 class="text-xl font-semibold text-navy-800">Research Assistant — Open Source Mobility Platform for Africa</h3>
+            <p class="text-navy-600 font-medium">Kigali Collaborative Research Centre (KCRC)</p>
             <p class="text-gray-600 mb-4">Jun 2025 – Sept 2025</p>
             <ul class="space-y-2 mb-2">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Conducted applied research on the use of multimodal Large Language Models to improve smart mobility in African cities</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Designed and tested a Retrieval-Augmented Generation (RAG) system integrating GTFS and OpenStreetMap data</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Applied User-Centered Design (UCD) principles to guide the development of accessible, AI-powered mobility tools for Kigali commuters</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Collaborated with Trufi Association and GIZ Rwanda on data architecture, system validation, and reporting deliverables</span>
               </li>
             </ul>
@@ -494,14 +523,14 @@
 
         <!-- CMU TA -->
         <div class="timeline-item">
-          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
-          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-            <h3 class="text-xl font-semibold text-gray-800">Graduate Teaching Assistant</h3>
-            <p class="text-indigo-600 font-medium">Carnegie Mellon University</p>
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-navy-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-md shadow-md p-6 transition">
+            <h3 class="text-xl font-semibold text-navy-800">Graduate Teaching Assistant</h3>
+            <p class="text-navy-600 font-medium">Carnegie Mellon University</p>
             <p class="text-gray-600 mb-4">2024 – 2025</p>
             <ul class="space-y-2 mb-2">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Assisting with the 11-785/485 Introduction to Deep Learning course, conducting recitations, designing quizzes, grading assignments, and mentoring students.</span>
               </li>
             </ul>
@@ -509,7 +538,7 @@
               href="https://deeplearning.cs.cmu.edu/shared/TAs.html"
               target="_blank"
               rel="noopener"
-              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+              class="text-navy-600 hover:text-navy-800 inline-flex items-center mt-2"
             >
               TAs page <i class="fas fa-external-link-alt ml-1 text-sm"></i>
             </a>
@@ -518,14 +547,14 @@
 
         <!-- Global Nexus -->
         <div class="timeline-item">
-          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
-          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-            <h3 class="text-xl font-semibold text-gray-800">Artificial Intelligence Instructor</h3>
-            <p class="text-indigo-600 font-medium">Global Nexus Institute</p>
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-navy-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-md shadow-md p-6 transition">
+            <h3 class="text-xl font-semibold text-navy-800">Artificial Intelligence Instructor</h3>
+            <p class="text-navy-600 font-medium">Global Nexus Institute</p>
             <p class="text-gray-600 mb-4">2024 – 2025</p>
             <ul class="space-y-2 mb-2">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Guiding students in data science, machine learning, and AI, fostering a dynamic learning community for future tech innovators.</span>
               </li>
             </ul>
@@ -533,7 +562,7 @@
               href="https://www.globalnexus.co.rw/about"
               target="_blank"
               rel="noopener"
-              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+              class="text-navy-600 hover:text-navy-800 inline-flex items-center mt-2"
             >
               Learn more <i class="fas fa-external-link-alt ml-1 text-sm"></i>
             </a>
@@ -542,26 +571,26 @@
 
         <!-- WorldQuant -->
         <div class="timeline-item">
-          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
-          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-            <h3 class="text-xl font-semibold text-gray-800">Data Science Lab Apprentice</h3>
-            <p class="text-indigo-600 font-medium">WorldQuant University</p>
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-navy-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-md shadow-md p-6 transition">
+            <h3 class="text-xl font-semibold text-navy-800">Data Science Lab Apprentice</h3>
+            <p class="text-navy-600 font-medium">WorldQuant University</p>
             <p class="text-gray-600 mb-4">Apr 2023 – Jul 2023</p>
             <ul class="space-y-2 mb-2">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Completed 6 comprehensive data science projects focused on predictive modeling, data mining, and statistical analysis</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Built robust data pipelines for extracting, cleaning, and visualizing data from SQL, MongoDB, and APIs</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Conducted validation, metric definition, and automated reporting using Jupyter + Power BI</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Implemented cloud-based data storage solutions for efficient data processing</span>
               </li>
             </ul>
@@ -570,14 +599,14 @@
 
         <!-- Might Engineering -->
         <div class="timeline-item">
-          <div class="absolute -left-11 mt-1 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white"></div>
-          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-            <h3 class="text-xl font-semibold text-gray-800">Single Line Generation Engineer</h3>
-            <p class="text-indigo-600 font-medium">Might Engineering</p>
+          <div class="absolute -left-11 mt-1 w-6 h-6 bg-navy-600 rounded-full border-4 border-white"></div>
+          <div class="bg-white rounded-md shadow-md p-6 transition">
+            <h3 class="text-xl font-semibold text-navy-800">Single Line Generation Engineer</h3>
+            <p class="text-navy-600 font-medium">Might Engineering</p>
             <p class="text-gray-600 mb-4">Mar 2023 – Jun 2023</p>
             <ul class="space-y-2 mb-2">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Translated CAD energy models into performance dashboards and monitoring templates</span>
               </li>
             </ul>
@@ -592,98 +621,98 @@
   <section id="projects" class="py-20 bg-gray-50 section">
     <div class="container mx-auto px-4">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+        <h2 class="text-3xl font-bold text-navy-800 inline-block relative">
           Key Projects
-          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+          <span class="block h-1 w-24 bg-gold-500 mt-2 mx-auto"></span>
         </h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Featured: Mosquito Detection -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card md:col-span-2 border-l-4 border-indigo-600">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card md:col-span-2 border-l-4 border-navy-600">
           <div class="p-6">
             <div class="flex items-center mb-2">
-              <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs mr-2">Featured Project · Current</span>
-              <h3 class="text-xl font-semibold text-gray-800">AI-Driven Mosquito Breeding Site Detection</h3>
+              <span class="bg-navy-100 text-navy-700 px-2 py-1 rounded-sm text-xs mr-2">Featured Project · Current</span>
+              <h3 class="text-xl font-semibold text-navy-800">AI-Driven Mosquito Breeding Site Detection</h3>
             </div>
-            <p class="text-indigo-600 font-medium mb-3">Charis UAS | Gates Foundation-funded Malaria Eradication Initiative | Current</p>
+            <p class="text-navy-600 font-medium mb-3">Charis UAS | Gates Foundation-funded Malaria Eradication Initiative | Current</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Developing a production-ready computer vision system combining deep learning and remote sensing for public health applications</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Implementing <strong>instance segmentation</strong> models processing multi-spectral UAV imagery at <strong>5cm ground sampling distance</strong></span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Creating automated annotation workflows using COCO JSON format and managing large-scale geospatial datasets</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Integrating biological ground-truth data with environmental variables to improve predictive accuracy</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Building scalable ML pipelines supporting iterative model development and continuous validation</span>
               </li>
             </ul>
 
             <div class="flex flex-wrap gap-2 mb-2">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Computer Vision</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Instance Segmentation</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">UAV Imagery</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Remote Sensing</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">PyTorch</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">COCO JSON</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Public Health</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Computer Vision</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Instance Segmentation</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">UAV Imagery</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Remote Sensing</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">PyTorch</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">COCO JSON</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Public Health</span>
             </div>
           </div>
         </div>
 
         <!-- JupyterBuddy -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card md:col-span-2 border-l-4 border-purple-600">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card md:col-span-2 border-l-4 border-gold-600">
           <div class="p-6">
             <div class="flex items-center mb-2">
-              <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs mr-2">Capstone Project</span>
-              <h3 class="text-xl font-semibold text-gray-800">JupyterBuddy: Conversational Assistant for ML Workflow</h3>
+              <span class="bg-gold-100 text-gold-700 px-2 py-1 rounded-sm text-xs mr-2">Capstone Project</span>
+              <h3 class="text-xl font-semibold text-navy-800">JupyterBuddy: Conversational Assistant for ML Workflow</h3>
             </div>
-            <p class="text-indigo-600 font-medium mb-3">Eng. AI Capstone | Carnegie Mellon University Africa | 2025</p>
+            <p class="text-navy-600 font-medium mb-3">Eng. AI Capstone | Carnegie Mellon University Africa | 2025</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Co-developed <strong>JupyterBuddy</strong>, an LLM-powered assistant for streamlining AI/ML workflows in JupyterLab using natural language commands and real-time code execution</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Designed a modular architecture with a React-based frontend, FastAPI backend, and LangGraph-based agent orchestrating tool invocations, achieving <strong>100% tool call accuracy</strong> and <strong>36% latency reduction</strong></span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Integrated <strong>RAG</strong> with FAISS and Sentence-BERT for context-aware, document-grounded responses across EDA, model training, and debugging tasks</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Enabled dynamic interaction with notebook cells (create, edit, execute, delete), real-time feedback, and error resolution</span>
               </li>
             </ul>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Python</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">LangGraph</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">FastAPI</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">React</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">RAG</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">FAISS</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Python</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">LangGraph</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">FastAPI</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">React</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">RAG</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">FAISS</span>
             </div>
 
             <a
               href="https://drive.google.com/drive/folders/1iIk6AbcgCJiyG7ahHJpX1Yfy9tG7fej_?usp=sharing"
               target="_blank"
               rel="noopener"
-              class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2"
+              class="text-navy-600 hover:text-navy-800 inline-flex items-center mt-2"
             >
               View Project Documentation <i class="fas fa-external-link-alt ml-1 text-sm"></i>
             </a>
@@ -691,217 +720,217 @@
         </div>
 
         <!-- TeleStream -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800">TeleStream Insights Hub</h3>
-            <p class="text-indigo-600 font-medium mb-3">Data Pipeline for Telecom Analytics</p>
+            <h3 class="text-xl font-semibold text-navy-800">TeleStream Insights Hub</h3>
+            <p class="text-navy-600 font-medium mb-3">Data Pipeline for Telecom Analytics</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Implemented batch ETL with PySpark and streaming ingestion using Kafka, documented to process <strong>10M+ CDR records/day</strong> (tested up to 15M/day) and sustain <strong>100K events/sec</strong></span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Designed a medallion Delta Lake layout (Bronze → Silver → Gold) with deduplication and schema validation</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Built Apache Airflow DAGs to orchestrate ingestion/transformation, with GitHub Actions CI/CD for tests and deployments</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Implemented an async FastAPI service with JWT auth and Redis caching; API P95 targets documented ≤200ms</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Integrated monitoring (Prometheus/Grafana, Great Expectations) with Docker deployment artifacts</span>
               </li>
             </ul>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">PySpark</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Kafka</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Delta Lake</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Airflow</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">FastAPI</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Grafana</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">PySpark</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Kafka</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Delta Lake</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Airflow</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">FastAPI</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Grafana</span>
             </div>
 
-            <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener" class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2">
+            <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener" class="text-navy-600 hover:text-navy-800 inline-flex items-center mt-2">
               View on GitHub <i class="fas fa-external-link-alt ml-1 text-sm"></i>
             </a>
           </div>
         </div>
 
         <!-- Rwanda Financial Inclusion -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800">Rwanda Financial Inclusion Analysis</h3>
-            <p class="text-indigo-600 font-medium mb-3">Data Science &amp; Policy Analytics</p>
+            <h3 class="text-xl font-semibold text-navy-800">Rwanda Financial Inclusion Analysis</h3>
+            <p class="text-navy-600 font-medium mb-3">Data Science &amp; Policy Analytics</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Comprehensive data science project analyzing financial inclusion patterns with interactive dashboards and market segmentation</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Developed a Streamlit web application with real-time data exploration and visualization capabilities</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Implemented SQL analytics for business intelligence and policy recommendation generation</span>
               </li>
             </ul>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Streamlit</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">SQL</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Data Analytics</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Policy Insights</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Streamlit</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">SQL</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Data Analytics</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Policy Insights</span>
             </div>
 
-            <a href="#" target="_blank" rel="noopener" class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2">
+            <a href="#" target="_blank" rel="noopener" class="text-navy-600 hover:text-navy-800 inline-flex items-center mt-2">
               Live Demo <i class="fas fa-external-link-alt ml-1 text-sm"></i>
             </a>
           </div>
         </div>
 
         <!-- DevOps Infra Automation -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800">DevOps Infrastructure Automation</h3>
-            <p class="text-indigo-600 font-medium mb-3">Full-Stack Infrastructure Automation | Sep 2025</p>
+            <h3 class="text-xl font-semibold text-navy-800">DevOps Infrastructure Automation</h3>
+            <p class="text-navy-600 font-medium mb-3">Full-Stack Infrastructure Automation | Sep 2025</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Built a production-ready Flask app with health monitoring endpoints and system information APIs</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Implemented full containerization with Docker/Docker Compose and Kubernetes manifests (ConfigMaps, Deployments, Services)</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Designed a CI/CD pipeline with GitHub Actions supporting multi-Python testing, security scanning, and image builds</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Achieved <strong>92% test coverage</strong> across container health, API performance, and system resource monitoring</span>
               </li>
             </ul>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Docker</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Kubernetes</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">GitHub Actions</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Flask</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Docker</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Kubernetes</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">GitHub Actions</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Flask</span>
             </div>
 
-            <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener" class="text-indigo-600 hover:text-indigo-800 inline-flex items-center mt-2">
+            <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener" class="text-navy-600 hover:text-navy-800 inline-flex items-center mt-2">
               Repository <i class="fas fa-external-link-alt ml-1 text-sm"></i>
             </a>
           </div>
         </div>
 
         <!-- Commute Ease -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800">Commute Ease</h3>
-            <p class="text-indigo-600 font-medium mb-3">Smart Mobility Dashboard (Hackathon Winner)</p>
+            <h3 class="text-xl font-semibold text-navy-800">Commute Ease</h3>
+            <p class="text-navy-600 font-medium mb-3">Smart Mobility Dashboard (Hackathon Winner)</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Built an analytics dashboard for traffic management using Power BI and GPS datasets</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Used SQL and APIs to automate data integration, enabling actionable policy insights</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Deployed the solution using cloud infrastructure for scalability and reliability</span>
               </li>
             </ul>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Power BI</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">GPS Analytics</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">SQL</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Cloud Infrastructure</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Power BI</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">GPS Analytics</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">SQL</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Cloud Infrastructure</span>
             </div>
           </div>
         </div>
 
         <!-- Smart Sorter -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800">Smart Sorter</h3>
-            <p class="text-indigo-600 font-medium mb-3">Recyclable Waste Classification</p>
+            <h3 class="text-xl font-semibold text-navy-800">Smart Sorter</h3>
+            <p class="text-navy-600 font-medium mb-3">Recyclable Waste Classification</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Created an end-to-end data collection and analysis pipeline with live monitoring</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Connected model results to Power BI for visual analytics and inferential insights</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Implemented containerized deployment for consistent performance across environments</span>
               </li>
             </ul>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Computer Vision</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Power BI</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Docker</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">IoT</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Computer Vision</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Power BI</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Docker</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">IoT</span>
             </div>
           </div>
         </div>
 
         <!-- Gender-AI Chatbot -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800">Gender-AI Chatbot</h3>
-            <p class="text-indigo-600 font-medium mb-3">4th Place – Innovation Challenge</p>
+            <h3 class="text-xl font-semibold text-navy-800">Gender-AI Chatbot</h3>
+            <p class="text-navy-600 font-medium mb-3">4th Place – Innovation Challenge</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Developed an inclusive AI assistant for family &amp; gender-based service tracking</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Designed UI with built-in reporting for outreach and case study documentation</span>
               </li>
             </ul>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">AI</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Chatbot</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">UI Design</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Reporting</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">AI</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Chatbot</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">UI Design</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Reporting</span>
             </div>
           </div>
         </div>
 
         <!-- CMU Cloud Computing -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800">CMU Cloud Computing Projects</h3>
-            <p class="text-indigo-600 font-medium mb-3">Academic Project Series</p>
+            <h3 class="text-xl font-semibold text-navy-800">CMU Cloud Computing Projects</h3>
+            <p class="text-navy-600 font-medium mb-3">Academic Project Series</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Getting Started With Cloud Computing: Deployed a multi-tier web application on cloud infrastructure</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Elasticity: Implemented auto-scaling solutions for handling variable workloads</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Containers: Designed microservices architecture using Docker and Kubernetes orchestration</span>
               </li>
             </ul>
@@ -909,33 +938,33 @@
             <div class="hidden expanded-content-cmu">
               <ul class="space-y-2 mb-4 animate-fadeIn">
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Iterative Processing: Developed a data analytics solution using Apache Spark for large-scale processing</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Cloud Storage: Built a hybrid database system integrating SQL and NoSQL databases (MySQL, MongoDB, Redis)</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Heterogeneous Storage: Created graph database solutions using Neo4j for complex data relationships</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Stream Processing: Implemented a real-time data pipeline with Kafka and Samza</span>
                 </li>
               </ul>
             </div>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Cloud Computing</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Docker</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Kubernetes</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Kafka</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Cloud Computing</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Docker</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Kubernetes</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Kafka</span>
             </div>
 
             <button
-              class="expand-btn text-indigo-600 hover:text-indigo-800 font-medium"
+              class="expand-btn text-navy-600 hover:text-navy-800 font-medium"
               data-target="expanded-content-cmu"
             >
               Show More
@@ -944,21 +973,21 @@
         </div>
 
         <!-- WorldQuant Projects -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition project-card">
+        <div class="bg-white rounded-md shadow-md overflow-hidden transition project-card">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800">WorldQuant Applied Data Science Projects</h3>
-            <p class="text-indigo-600 font-medium mb-3">Data Science Lab Series</p>
+            <h3 class="text-xl font-semibold text-navy-800">WorldQuant Applied Data Science Projects</h3>
+            <p class="text-navy-600 font-medium mb-3">Data Science Lab Series</p>
             <ul class="space-y-2 mb-4">
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Financial Market Analysis: Built predictive models for stock price movements using time series analysis</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Consumer Behavior Segmentation: Developed clustering algorithms to identify customer patterns</span>
               </li>
               <li class="flex items-start">
-                <span class="text-indigo-500 mr-2">•</span>
+                <span class="text-navy-500 mr-2">•</span>
                 <span class="text-gray-700">Healthcare Outcomes Prediction: Applied machine learning to predict patient outcomes from medical datasets</span>
               </li>
             </ul>
@@ -966,29 +995,29 @@
             <div class="hidden expanded-content-wq">
               <ul class="space-y-2 mb-4 animate-fadeIn">
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Environmental Data Processing: Created visualization dashboards for climate data interpretation</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Supply Chain Optimization: Designed inventory management models using statistical forecasting</span>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-500 mr-2">•</span>
+                  <span class="text-navy-500 mr-2">•</span>
                   <span class="text-gray-700">Social Media Sentiment Analysis: Implemented NLP algorithms to analyze brand perception</span>
                 </li>
               </ul>
             </div>
 
             <div class="flex flex-wrap gap-2 mb-4">
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Time Series</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Clustering</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">NLP</span>
-              <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">Forecasting</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Time Series</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Clustering</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">NLP</span>
+              <span class="bg-navy-100 text-navy-700 px-3 py-1 rounded-sm text-sm">Forecasting</span>
             </div>
 
             <button
-              class="expand-btn text-indigo-600 hover:text-indigo-800 font-medium"
+              class="expand-btn text-navy-600 hover:text-navy-800 font-medium"
               data-target="expanded-content-wq"
             >
               Show More
@@ -1004,123 +1033,123 @@
   <section id="skills" class="py-20 bg-white section">
     <div class="container mx-auto px-4">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+        <h2 class="text-3xl font-bold text-navy-800 inline-block relative">
           Technical Skills
-          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+          <span class="block h-1 w-24 bg-gold-500 mt-2 mx-auto"></span>
         </h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">🧠</span>
-            <h3 class="text-lg font-semibold text-gray-800">AI &amp; Machine Learning</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-brain"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">AI &amp; Machine Learning</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Deep Learning (U-Net, CNNs, YOLO)</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Computer Vision &amp; Instance Segmentation</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">TensorFlow, PyTorch, Keras</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Scikit-learn, Model Optimization</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Deep Learning (U-Net, CNNs, YOLO)</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Computer Vision &amp; Instance Segmentation</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">TensorFlow, PyTorch, Keras</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Scikit-learn, Model Optimization</span></li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">🛰️</span>
-            <h3 class="text-lg font-semibold text-gray-800">Remote Sensing &amp; Geospatial</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-satellite"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">Remote Sensing &amp; Geospatial</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Multi-spectral Image Processing</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">GDAL, Rasterio, GeoPandas</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">UAV Data Analysis</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">NDVI/NIR Analysis, Geospatial Visualization</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Multi-spectral Image Processing</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">GDAL, Rasterio, GeoPandas</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">UAV Data Analysis</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">NDVI/NIR Analysis, Geospatial Visualization</span></li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">💻</span>
-            <h3 class="text-lg font-semibold text-gray-800">Programming Languages</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-code"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">Programming Languages</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Python (NumPy, Pandas, OpenCV)</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">SQL (MySQL, PostgreSQL)</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Java, R, JavaScript</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Bash Scripting</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Python (NumPy, Pandas, OpenCV)</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">SQL (MySQL, PostgreSQL)</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Java, R, JavaScript</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Bash Scripting</span></li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">🏷️</span>
-            <h3 class="text-lg font-semibold text-gray-800">Data Annotation &amp; Tools</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-tags"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">Data Annotation &amp; Tools</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Roboflow, CVAT, Label Studio</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">COCO JSON, Annotation Workflows</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Data Augmentation</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Roboflow, CVAT, Label Studio</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">COCO JSON, Annotation Workflows</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Data Augmentation</span></li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">⚙️</span>
-            <h3 class="text-lg font-semibold text-gray-800">DevOps &amp; Infrastructure</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-server"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">DevOps &amp; Infrastructure</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Docker, Kubernetes</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">CI/CD Pipelines, GitHub Actions, Jenkins</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Terraform, Infrastructure as Code</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Docker, Kubernetes</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">CI/CD Pipelines, GitHub Actions, Jenkins</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Terraform, Infrastructure as Code</span></li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">☁️</span>
-            <h3 class="text-lg font-semibold text-gray-800">Cloud &amp; Deployment</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-cloud"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">Cloud &amp; Deployment</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">AWS (EC2, S3, Lambda)</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">GCP, Azure</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">System Monitoring, Automated Solutions</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Log Management</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">AWS (EC2, S3, Lambda)</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">GCP, Azure</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">System Monitoring, Automated Solutions</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Log Management</span></li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">📊</span>
-            <h3 class="text-lg font-semibold text-gray-800">Data Visualization &amp; BI</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-chart-line"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">Data Visualization &amp; BI</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Power BI, Tableau, Streamlit</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Dash, Grafana, Prometheus</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Matplotlib, Seaborn</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Power BI, Tableau, Streamlit</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Dash, Grafana, Prometheus</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Matplotlib, Seaborn</span></li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">🔧</span>
-            <h3 class="text-lg font-semibold text-gray-800">Data Engineering</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-diagram-project"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">Data Engineering</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">ETL Pipelines, REST APIs</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Kafka, Samza, PySpark</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Airflow, Version Control (Git)</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">ETL Pipelines, REST APIs</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Kafka, Samza, PySpark</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Airflow, Version Control (Git)</span></li>
           </ul>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-indigo-600 transition skill-card">
+        <div class="bg-white rounded-md shadow-md p-6 border-t-4 border-navy-600 transition skill-card">
           <div class="flex items-center mb-4">
-            <span class="text-2xl mr-2">🗄️</span>
-            <h3 class="text-lg font-semibold text-gray-800">Data Storage</h3>
+            <span class="w-9 h-9 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center mr-3 text-sm"><i class="fas fa-database"></i></span>
+            <h3 class="text-lg font-semibold text-navy-800">Data Storage</h3>
           </div>
           <ul class="space-y-2">
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">SQL (MySQL, PostgreSQL)</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">NoSQL (MongoDB, Redis, Neo4j)</span></li>
-            <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span><span class="text-gray-700">Data Warehousing, Distributed Systems</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">SQL (MySQL, PostgreSQL)</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">NoSQL (MongoDB, Redis, Neo4j)</span></li>
+            <li class="flex items-start"><span class="text-navy-500 mr-2">•</span><span class="text-gray-700">Data Warehousing, Distributed Systems</span></li>
           </ul>
         </div>
 
@@ -1132,36 +1161,36 @@
   <section id="certifications" class="py-20 bg-gray-50 section">
     <div class="container mx-auto px-4">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+        <h2 class="text-3xl font-bold text-navy-800 inline-block relative">
           Certifications
-          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+          <span class="block h-1 w-24 bg-gold-500 mt-2 mx-auto"></span>
         </h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-lg shadow-md p-6 text-center transition certification-card">
-          <div class="text-4xl mb-4">🧠</div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Machine Learning</h3>
-          <p class="text-indigo-600">Stanford University (Coursera)</p>
-          <a href="https://drive.google.com/file/d/1-C1KZFXlJr0vIxfJSasr7lJDZoqNXhLP/view" target="_blank" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-medium">
+        <div class="bg-white rounded-md shadow-md p-6 text-center transition certification-card">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center text-xl"><i class="fas fa-brain"></i></div>
+          <h3 class="text-xl font-semibold text-navy-800 mb-2">Machine Learning</h3>
+          <p class="text-navy-600">Stanford University (Coursera)</p>
+          <a href="https://drive.google.com/file/d/1-C1KZFXlJr0vIxfJSasr7lJDZoqNXhLP/view" target="_blank" class="inline-block mt-4 text-navy-600 hover:text-navy-800 font-medium">
             View Certificate <i class="fas fa-external-link-alt ml-1 text-sm"></i>
           </a>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 text-center transition certification-card">
-          <div class="text-4xl mb-4">📈</div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Analytics Professional</h3>
-          <p class="text-indigo-600">Google</p>
-          <a href="https://drive.google.com/file/d/1-C1KZFXlJr0vIxfJSasr7lJDZoqNXhLP/view" target="_blank" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-medium">
+        <div class="bg-white rounded-md shadow-md p-6 text-center transition certification-card">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center text-xl"><i class="fas fa-chart-line"></i></div>
+          <h3 class="text-xl font-semibold text-navy-800 mb-2">Data Analytics Professional</h3>
+          <p class="text-navy-600">Google</p>
+          <a href="https://drive.google.com/file/d/1-C1KZFXlJr0vIxfJSasr7lJDZoqNXhLP/view" target="_blank" class="inline-block mt-4 text-navy-600 hover:text-navy-800 font-medium">
             View Certificate <i class="fas fa-external-link-alt ml-1 text-sm"></i>
           </a>
         </div>
 
-        <div class="bg-white rounded-lg shadow-md p-6 text-center transition certification-card">
-          <div class="text-4xl mb-4">🔤</div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">NLP Specialization</h3>
-          <p class="text-indigo-600">DeepLearning.AI</p>
-          <a href="#" class="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-medium">
+        <div class="bg-white rounded-md shadow-md p-6 text-center transition certification-card">
+          <div class="w-14 h-14 mx-auto mb-4 rounded-sm border border-navy-300 bg-white text-navy-700 flex items-center justify-center text-xl"><i class="fas fa-language"></i></div>
+          <h3 class="text-xl font-semibold text-navy-800 mb-2">NLP Specialization</h3>
+          <p class="text-navy-600">DeepLearning.AI</p>
+          <a href="#" class="inline-block mt-4 text-navy-600 hover:text-navy-800 font-medium">
             View Certificate
           </a>
         </div>
@@ -1173,22 +1202,22 @@
   <section id="leadership" class="py-20 bg-white section">
     <div class="container mx-auto px-4">
       <div class="mb-10 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 inline-block relative">
+        <h2 class="text-3xl font-bold text-navy-800 inline-block relative">
           Leadership
-          <span class="block h-1 w-24 bg-indigo-600 mt-2 mx-auto"></span>
+          <span class="block h-1 w-24 bg-gold-500 mt-2 mx-auto"></span>
         </h2>
       </div>
 
-      <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6 shadow-md">
-        <h3 class="text-xl font-semibold text-indigo-700 mb-2">UR Tech Innovators – Chairman</h3>
+      <div class="bg-gradient-to-r from-navy-50 to-gold-50 rounded-md p-6 shadow-md">
+        <h3 class="text-xl font-semibold text-navy-700 mb-2">UR Tech Innovators – Chairman</h3>
         <p class="text-gray-600 mb-4">2019 – 2022</p>
         <ul class="space-y-2">
           <li class="flex items-start">
-            <i class="fas fa-chevron-right text-indigo-500 mr-2 mt-1"></i>
+            <i class="fas fa-chevron-right text-navy-500 mr-2 mt-1"></i>
             <span>Led community impact projects through data-informed decision-making</span>
           </li>
           <li class="flex items-start">
-            <i class="fas fa-chevron-right text-indigo-500 mr-2 mt-1"></i>
+            <i class="fas fa-chevron-right text-navy-500 mr-2 mt-1"></i>
             <span>Organized workshops on technology, inclusion, and entrepreneurship during COVID</span>
           </li>
         </ul>
@@ -1197,7 +1226,7 @@
   </section>
 
   <!-- Contact Section with Form -->
-  <section id="contact" class="py-20 bg-gradient-to-r from-indigo-700 to-purple-600 text-white">
+  <section id="contact" class="py-20 bg-navy-800 text-white">
     <div class="container mx-auto px-4">
       <div class="mb-10 text-center">
         <h2 class="text-3xl font-bold text-white inline-block relative">
@@ -1206,7 +1235,7 @@
         </h2>
       </div>
 
-      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 text-gray-800">
+      <div class="max-w-3xl mx-auto bg-white rounded-md shadow-lg p-8 text-navy-800">
         <form class="space-y-6" action="https://formspree.io/f/mpwdppad" method="POST">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -1214,7 +1243,7 @@
               <input
                 type="text"
                 name="name"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500"
                 placeholder="Your Name"
                 required
               />
@@ -1224,7 +1253,7 @@
               <input
                 type="email"
                 name="_replyto"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500"
                 placeholder="Your Email"
                 required
               />
@@ -1235,7 +1264,7 @@
             <input
               type="text"
               name="subject"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              class="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500"
               placeholder="Subject"
               required
             />
@@ -1244,52 +1273,52 @@
             <label class="block text-gray-700 mb-2">Message</label>
             <textarea
               name="message"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 h-32"
+              class="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-navy-500 h-32"
               placeholder="Your Message"
               required
             ></textarea>
           </div>
           <button
             type="submit"
-            class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-md w-full md:w-auto"
+            class="bg-navy-600 text-white px-8 py-3 rounded-sm font-semibold hover:bg-navy-700 transition shadow-md w-full md:w-auto"
           >
             Send Message
           </button>
         </form>
 
         <div class="mt-6 text-center text-gray-600">
-          <p>Alternatively, you can directly email me at: <a href="mailto:niygeredi@gmail.com" class="text-indigo-600 hover:underline">niygeredi@gmail.com</a></p>
+          <p>Alternatively, you can directly email me at: <a href="mailto:niygeredi@gmail.com" class="text-navy-600 hover:underline">niygeredi@gmail.com</a></p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-indigo-900 text-white py-10">
+  <footer class="bg-navy-900 text-white py-10">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
           <h2 class="text-2xl font-bold mb-2">Geredi Niyibigira</h2>
-          <p class="text-indigo-200">AI Engineer &amp; Machine Learning Specialist | Computer Vision | LLM | DevOps</p>
+          <p class="text-navy-200">AI Engineer &amp; Machine Learning Specialist | Computer Vision | LLM | DevOps</p>
         </div>
 
         <div class="flex space-x-4">
           <a href="https://www.linkedin.com/in/niyibigira-geredi-a880111a7/" target="_blank" rel="noopener"
-             class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-700 transition">
+             class="bg-navy-800 p-3 rounded-full hover:bg-navy-700 transition">
             <i class="fab fa-linkedin"></i>
           </a>
           <a href="https://github.com/GerediNIYIBIGIRA" target="_blank" rel="noopener"
-             class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-700 transition">
+             class="bg-navy-800 p-3 rounded-full hover:bg-navy-700 transition">
             <i class="fab fa-github"></i>
           </a>
           <a href="mailto:ngeredi@alumni.cmu.edu"
-             class="bg-indigo-800 p-3 rounded-full hover:bg-indigo-700 transition">
+             class="bg-navy-800 p-3 rounded-full hover:bg-navy-700 transition">
             <i class="fas fa-envelope"></i>
           </a>
         </div>
       </div>
 
-      <div class="border-t border-indigo-800 mt-6 pt-6 text-center text-indigo-200">
+      <div class="border-t border-navy-800 mt-6 pt-6 text-center text-navy-200">
         &copy; <span id="current-year"></span> Geredi Niyibigira. All rights reserved.
       </div>
     </div>
@@ -1379,12 +1408,12 @@
       });
 
       navLinks.forEach(link => {
-        link.classList.remove('font-semibold', 'text-indigo-600', 'border-b-2', 'border-indigo-600');
+        link.classList.remove('font-semibold', 'text-navy-600', 'border-b-2', 'border-navy-600');
         const href = link.getAttribute('href').substring(1);
         if (href === currentSection) {
-          link.classList.add('font-semibold', 'text-indigo-600');
+          link.classList.add('font-semibold', 'text-navy-600');
           if (window.innerWidth >= 768) {
-            link.classList.add('border-b-2', 'border-indigo-600');
+            link.classList.add('border-b-2', 'border-navy-600');
           }
         }
       });
@@ -1397,19 +1426,6 @@
     window.addEventListener('load', function() {
       handleScrollAnimation();
       setActiveNavLink();
-
-      const cards = document.querySelectorAll('.skill-card, .project-card, .education-card, .certification-card');
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          this.classList.add('shadow-lg');
-          this.style.transform = 'translateY(-5px)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-          this.classList.remove('shadow-lg');
-          this.style.transform = 'translateY(0)';
-        });
-      });
     });
 
     // Event listeners for scroll
